@@ -1,0 +1,31 @@
+---
+variables:
+  RUNNER_GENERATE_ARTIFACTS_METADATA: "true"  
+  BROWSER_PERFORMANCE_DISABLED: "true"
+
+  DEPENDENCY_SCANNING_DISABLED: "true"
+  SECRET_DETECTION_DISABLED: "true"
+
+  #
+  # Toggle Below:
+  #
+  SLSA_PROVENANCE_SCHEMA_VERSION: "v1"  
+  
+  
+  #SAST_DISABLED: "true"
+  #DAST_DISABLED: "true"
+  
+slsa2:
+  script:
+    - echo "SLSA-Manifest" > SLSA-Manifest.txt
+  artifacts:
+    paths:
+      - SLSA-Manifest.txt
+
+
+# Leave As-Is:
+
+include:  
+  - template: Auto-DevOps.gitlab-ci.yml
+
+  
